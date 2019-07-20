@@ -1,0 +1,16 @@
+# arquivo de configuração de dispositivos para o simulador
+
+%buttons Comandos
+ChegadaUm 0x90000 0x0 P
+PartidaUm 0x91000 0x0 P
+ChegadaDois 0x92000 0x0 P
+PartidaDois 0x93000 0x0 P
+ChegadaTres 0x94000 0x0 P
+PartidaTres 0x95000 0x0 P
+Parada 0x96000 0x0 P
+
+%lcd LCD
+# portcmd portdata color size
+# size can be 16x2, 20x2 or 20x4
+# color can be blue, green or amber
+0x97000 0x98000 blue 20x2  

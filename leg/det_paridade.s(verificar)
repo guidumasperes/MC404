@@ -1,0 +1,42 @@
+@programa que determina a paridade de uma palabra de 32 bits
+
+@definir pilha
+FINAL_MEMORIA	.equ	0x80000
+
+@definir variaveis
+var:	.word	0xc0000002
+
+@inicio do programa
+inicio:
+	set	sp,FINAL_MEMORIA
+	set	r1,var
+	ldb	r3,[r1]
+	call	det_paridade
+	ldb	r3,[r1+1]
+	call	det_paridade
+	ldb	r3,[r1+2]
+	call	det_paridade
+	ldb	r3,[r1+3]
+	call	det_paridade
+	hlt
+
+@funcoes
+@funcao que determina a paridade
+det_paridade:
+	set	r2,0x00000001
+	call	testa_bits
+	set	r2,0x00000010
+	call	testa_bits
+	set	r2,0x00000100
+	call	testa_bits
+	set	r2,0x00001000
+	call	testa_bits
+	ret
+@funcao que faz o and e determina se deu 1
+testa_bits:
+	and	r2,r3
+	sub	r2,1
+	jnz	final
+	add	r0,1
+final:
+	ret

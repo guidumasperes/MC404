@@ -1,0 +1,19 @@
+@dispositivos
+
+%leds On/Off
+rg 0x90000
+
+%buttons Porta
+Abrir/Fechar 0xd0000 6 P
+
+%timer
+0xc0000 7
+
+%7segs DISPLAY
+0xa0000 
+0xa0001 
+0xa0002 
+0xa0003
+
+%keyboard Teclado
+0xb0000 0xb0001 0x0
